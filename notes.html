@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+		<title>Competitive Practice Notes</title>
+	</head>
+	<body>
+		<main>
+			<h1>Competitive Programming / Leetcode notes</h1>
+			<h2>Codeforces Problemset</h2>
+			<ul>
+				<li>
+					<h3>1A:</h3>
+					<p> I encountered issues with datatypes in this problem. I tried to take the ceiling of two integers by first converting them to floats. This may lead to problems with rounding errors. Instead, use the formula for the ceiling which I used in the problem.</p>
+				</li>
+				<li>
+					<h3>492B:</h3>
+					<p>I got error when outputing doubles because the default output precision is 6 decimals. This leads to rounding error. Instead, use setprecision() as seen in solution.</p>
+				</li>
+				<li>
+					<h3>498B:</h3>
+					<p>Sort static array in C++ by sort(arr, arr+len(arr))</p>
+				</li>
+				<li>
+					<h3>1352C:</h3>
+					<p>There is a magic formula floor(m-1/n-1). Look at editorial for this.</p>
+				</li>
+				<li>
+					<h3>2036E</h3>
+					<p>This is a good example of a more complex binary search problem. Instead of searching for a specific value. You are finding the largest n s.t. n > c. This ends up being a good candidate for binary search.</p>
+				</li>
+				<li>
+					<h3>2036F</h3>
+					<p>Really interesting mathematical problem involving XOR</p>
+				</li>
+				<li>
+					<h3>2033D</h3>
+					<p>This problem is faster with set than unordered_set. It actually gets TLE with unordered_set and not with set.</p>
+				</li>
+				<li>
+					<h3>2050F</h3>
+					<p>This problem involves use of modular arithmatic and sparse tree data structure for querying</p>
+				</li>
+				<li>
+					<h3>2050G</h3>
+					<p>This problem involves DP on trees in a style simular to max width of binary tree</p>
+				</li>
+				<li>
+					<h3>Misc Notes</h3>
+					<p>Using hashmaps in c++: import map, to see if key in map: m.find(key), the rest is like dictionaries in python </p>
+					<p>Calculating prime numbers using fast sieve of Erotesthenos algo: </p>
+					<p>Using hashsets in c++: import unordered_set; set.insert(value) adds element, use set if you want ordered elements </p>
+					<p>Initialize entire array with a value at every index: arr[100] = {0} -- Initializes array to all zeros </p>
+					<p>Problem 445A was somewhat confusing DP. Takeaway is that it is only nessecary to pay attention to the cost function of recursion. Let induction do the rest and don't think about it too hard!.</p>
+					<p>Declare a vector of certain size n: vector<int> arr(n). Declare a vector of certain size and initialize the array with all zeros: vector<int> arr(n,0).</p>
+					<p>Using string datatype in c++: str + 'a' is the best way to append characters </p>
+					<p>Using queue in c++: include queue, methods q.push but q.pop returns void so we must call q.front to get the first value then use q.pop and the rest works like any other standard collection type </p>
+					<p>Best way to write a 2 pointer is a while loop nested within a for loop. This is a nice standard way to do it.</p>
+					<p>Priority queue/ maxHeap in c++: include queue and declare priority_queue<int>. queue.push(n) to add a number n. queue.top() and queue.pop() to get the largest number and delete it. </p>
+					<p>Combine two vectors in c++ using concatenate </p>
+					<p>Reset priority queue in c++: q = priority_queue<int>();</p>
+					<p>Always flush stdout with endl in interactive problems </p>
+					<p>Often times, redeclaring something (as empty) is more efficient than clearing it </p>
+					<p>auto data type lets the compiler "decide what data type it should be. Note: this doesn't mean an auto variable can ve reassigned to a different data type.</p>
+					<p>Loop through element in pretty much any data type with for (auto elem: variable) </p>
+					<p>Get substring of string with substr(start_endex, num_chars) </p>
+					<p>Compare substrings with s1.compare(s2) </p>
+					<p>Convert string datatype to integer using stoi()</p>
+					<p>CF contest 991 Div 3 has a lot of number theory style problems</p>
+					<p>CF problem Hungry Games is a cool dp problem with binary search on prefix sum array</p>
+				</li>
+				<li>
+					<h3> General Tips / Good Practice </h3>
+					<p>Pay extremely close attention to problem statements if it isn't immediately obvious what it's asking. Draw out the situation on paper and do not rule out all the possibilies of what the statement is saying until you know for sure. </p>
+					<p>When using 
+				</li>
+				<li> 
+					<h3> Resources </h3>
+					<li> CSES 300 </li>
+					<li> USACO Silver/Gold/Platinum/Advanced Problem Sets </li>
+					<li> Atcoder beginner contests </li>
+					<li> Old codeforces problems/virtual contests </li>
+				</li>
+			</ul>
+		</main>
+	</body>
+</html>

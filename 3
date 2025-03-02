@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+
+#define ll long long
+
+using namespace std;
+
+int main() {
+	int t; cin >> t;
+	while (t--) {
+		ll l, r; cin >> l >> r;
+		ll n1 = 1; 
+		ll n2 = 1; 
+		ll n3 = l;
+		while (n1 <= r) {
+			n1 = n1 << 1;
+		}
+		n1 = n1 >> 1;
+		while ((r & l) & n1 > 0) {
+			n1 >> 1;
+		}
+		n2 = n1 - 1;
+		n3 = (n1 == r) ? l : r;
+		cout << n1 << " " << n2 << " " << n3 << "\n";
+	}
+}
+

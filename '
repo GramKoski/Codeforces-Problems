@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
+
+using namespace std;
+
+
+int main() {
+	int t; cin >> t;
+	while (t--) {
+		unordered_map<int, vector<int>> f_adj;
+		unordered_map<int, vector<int>> g_adj;
+		vector<int> f;
+		int n, m1, m2; cin >> n >> m1 >> m2;
+		//This problem is all about connected components
+		int u, v;
+		for (int i = 0; i < m1; ++i) {
+			cin >> u >> v;
+			if (f_adj.find(u) == f_adj.end()) {
+				f_adj[u] = {v};
+			} else {
+				f_adj[u].push_back(v);
+			}
+			if (f_adj.find(v) == f_adj.end()) {
+				f_adj[v] = {u};
+			} else {
+				f_adj[v].push_back(u);
+			}
+		}
+		for (int i = 0; i < m2; ++i) {
+			cin >> u >> v;
+			if (g_adj.find(u) == g_adj.end()) {
+				g_adj[u] = {v};
+			} else {
+				g_adj[u].push_back(v);
+			}
+			if (g_adj.find(v) == g_adj.end()) {
+				g_adj[v] = {u};
+			} else {
+				g_adj[v].push_back(u);
+			}
+		}
+		unordered_set<int> visited;
+		for (int i = 0; i < n; ++i) {
+
