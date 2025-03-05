@@ -2,6 +2,8 @@
 #include <unordered_set>
 #include <iostream>
 #include <unordered_map>
+#include <set>
+#include <map>
 
 #define ll long long
 
@@ -27,10 +29,10 @@ int main() {
 		for (int i = 0; i < n; ++i) {
 			cin >> a[i];
 		}
-		unordered_map<pair<int, int>, unordered_map<int, int>, PairHash> b;
-		unordered_map<pair<int, int>, unordered_map<int, int>, PairHash> m;
-		unordered_map<pair<int, int>, unordered_map<int, int>, PairHash> e;
-		vector<unordered_map<pair<int, int>, int, PairHash>> count(3);
+		map<pair<int, int>, map<int, int>> b;
+		map<pair<int, int>, map<int, int>> m;
+		map<pair<int, int>, map<int, int>> e;
+		vector<map<pair<int, int>, int>> count(3);
 		ll res = 0;
 		pair<int, int> z, o, t;
 		for (int i = 0; i < n-2; ++i) {
