@@ -40,7 +40,7 @@ int main() {
 		for (ll i = max((k+1)/2, k-a); i <= min(b, k); ++i) {
 			res += ((fac[b] * inv[i] % p * inv[b-i] % p) * (fac[a] * inv[k-i] % p * inv[a-(k-i)] % p))%p ;
 		}
-		cout << res << "\n";
+		cout << res%p << "\n";
 	}
 }
 
