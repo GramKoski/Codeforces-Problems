@@ -9,14 +9,15 @@ int main() {
 	int t; cin >> t;
 	while (t--) {
 		ll k, x, a; cin >> k >> x >> a;
-		ll b = (a+k-1)/k;
-		ll res = b;
-		for (int i = x; i >= 1; --i) {
-			b = (a-b+k-1)/k;
-			res += b;
+		ll b = 1;
+		ll sum = 1;
+		for (int i = 2; i <= x+1; ++i) {
+			b = (sum+k-1)/(k-1);
+			sum += b;
+			if (a-sum < 0) break;
 		}
-		cout << res << "\n";
-		if (res <= a) {
+		//cout << a-sum << "\n";
+		if (a-sum >= 0) {
 			cout << "Yes\n";
 		} else {
 			cout << "No\n";
