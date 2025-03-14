@@ -22,6 +22,7 @@ int main() {
 		ll res = 1;
 		vector<ll> o(n);
 		for (int i = n-1; i >= 0; --i) {
+			cout << i << " " << matching;
 			if (s[i] == 'R') {
 				res *= (a[r]%m);
 				res %= m;
