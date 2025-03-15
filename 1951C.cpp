@@ -20,16 +20,11 @@ int main() {
 		sort(a.begin(), a.end());
 		llu price = 0;
 		for (int i = 0; i < k/m; ++i) {
-			 price += a[i]*m;
+			 price += a[i]*m + m*i*m;
+			 //cout << "p = " << a[i]*m + i*m*m << "\n";
 		}
-		if (k/m < n) {
-			price += a[k/m]*(k%m);
-		}
-		//Each additional unit of tax is in bijection with the number of pairs not in the same index
-		//How do I actually get the tax calculation correct?!
-
-		for (int i = 0; i < k/m; ++i) price += m*i*m;
-		price += (k%m)*k/m*m;
+		//cout << a[k/m] << " " << k%m << " " << price << "\n";
+		price += a[k/m]*(k%m) + ((k > m) ? (k/m)*m*(k%m) : 0);
 		cout << price << "\n";
 	}
 }
