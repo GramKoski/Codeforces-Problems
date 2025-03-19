@@ -14,3 +14,16 @@ int main() {
 		//In general if the round is not a power of 2 it can be broken down into an odd number and a lower power of 2
 		//What can be done checking if the number is odd than checking its lowest power of 2 (lowest set bit
 		//Or we can do it recursively is better
+		int r = 1;
+		int place = 0;
+		while (place + (n+1)/2 < k) {
+			place += (n+1)/2;
+			n = n/2;
+			r = 2*r;
+			//cout << place << " " << r << "\n";
+		}
+		
+		int res = (2*(k-place)-1)*r;
+		cout << res << "\n";
+	}
+}
