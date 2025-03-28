@@ -12,7 +12,7 @@ int main() {
 	int t; cin >> t;
 	while (t--) {
 		int n; cin >> n;
-		ll mod = 1e9 + 7;
+		ll mod = 998244353;
 		map<ll, vector<ll>> m; ll p;
 		for (ll i = 1; i < n; ++i) {
 			cin >> p;
@@ -38,7 +38,7 @@ int main() {
 				ll curr = q.front();
 				q.pop();
 				for (auto c : m[curr]) {
-					paths[c] = ((curr == 0) ? 1 : (prev[curr]*(size-1)%mod));
+					paths[c] = ((curr == 0) ? 1 : (paths[curr]*(size-1)%mod));
 					curr_sum += paths[c];
 					curr_sum %= mod;
 					//cout << curr << " " << c << " " << paths[c] << "\n"; 
@@ -47,6 +47,8 @@ int main() {
 			}
 			prev.push_back(curr_sum%mod);
 		}
+		//for (auto p : paths) cout << p << " ";
+		//cout << "\n";
 		ll res = 0;
 		for (auto sum : prev) {
 			res += sum % mod;
