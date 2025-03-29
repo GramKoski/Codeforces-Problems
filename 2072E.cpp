@@ -1,28 +1,36 @@
 #include <iostream>
 #include <vector>
 
+#define ll long long
+
 using namespace std;
 
 int main() {
 	int t; cin >> t;
 	while (t--) {
-		int k; cin >> k; vector<int> res;
+		int k; cin >> k; vector<ll> res;
 		while (k != 0) {
 			//Binary search
-			int l = 0; int r = k+2; int mid;
-			while (l < r -1) {
-				mid = (l+r)/2;
-				if (mid*(mid-1)/2 <= k) {
-					l = mid;
-				} else {
-					r = mid;
+			int l;
+			for (l = 0; l < k+2; ++l) {
+				if (l*(l-1)/2 > k) {
+					break;
 				}
 			}
-			res.push_back(l);
+			l--;
 			k -= l*(l-1)/2;
-			cout << k << " " << l << "\n";
+			res.push_back(l);
+			//cout << k << " " << l << "\n";
 		}
-		for (auto e : res) cout << e << " ";
-		cout << "\n";
+		ll sum = 0;
+		for (auto e : res) sum += e;
+		cout << sum << "\n";
+		int curr = 0;
+		for (int i = 0; i < res.size(); ++i) {
+			for (int j =0; j < res[i]; ++j) {
+				cout << i << " " << curr + j << "\n";
+			}
+			curr = curr+res[i];
+		}
 	}
 }
