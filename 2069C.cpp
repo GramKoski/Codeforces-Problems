@@ -10,54 +10,22 @@ int main() {
 	while (t--) {
 		int n; cin >> n;
 		vector<int> a(n);
+		ll m = 998244353;
 		for (int i = 0; i < n; ++i) cin >> a[i];
-		int start = -1;
-		for (int i = 0; i < n; ++i) {
-			if (a[i] == 1) {
-				start = i;
-				break;
+		vector<vector<ll>> dp(n, vector<ll>(3));
+		ll res = 0;
+		if (a[0] == 1) dp[0][0] = 1;
+		dp[0][2] = 0;
+		dp[0][1] = 0;
+		for (int i = 1; i < n; ++i) {
+			dp[i][0] = (a[i] == 1) ? (dp[i-1][0] + 1) % m: dp[i-1][0];
+			dp[i][1] = (a[i] == 2) ? (dp[i-1][1]*2 + dp[i-1][0]) % m : dp[i-1][1];
+			if (a[i] == 3) {
+				res += dp[i][1];
+				res %= m;
 			}
 		}
-		if (start == -1) {
-			cout << 0 << "\n";
-		} else {
-			vector<pair<int, ll>> val;
-			ll curr = 1;
-			for (int i = start; i < n; ++i) {
-				if (a[i] == 2) {
-					curr *= 2;
-				} else if (a[i] == 3) {
-					val.push_back({i, curr-1});
-				}
-			}
-			if (val.size() == 0) {
-				cout << 0 << "\n";
-			} else {
-				ll res = 0;
-				for (auto e : val) res += e.second;
-				int curr_i = start;
-				int curr_3 = 0;
-				ll curr_sum = res + val.size();
-				ll num_twos = 0;
-				for (int i = curr_i+1; i < n; ++i) {
-					if (i == val[curr_3].first) {
-						curr_sum -= val[curr_3].second + 1;
-						curr_3 += 1;
-						if (curr_3 >= val.size()) break;
-					}
-					if (a[i] == 2) {
-						num_twos += 1;
-					}
-					if (a[i] == 1) {
-						curr_sum >>= num_twos*(val.size() - curr_3);
-						res += curr_sum-1;
-						cout << i << " " << curr_sum << " " << res << "\n";
-						num_twos = 0;
-					}
-				}
-				cout << res << "\n";
-			}
-		}
+		cout << res % m << "\n";
 	}
 }
 						
