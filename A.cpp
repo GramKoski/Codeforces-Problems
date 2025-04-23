@@ -1,21 +1,25 @@
 #include <iostream>
 #include <vector>
 
+#define ll long long
+
 using namespace std;
 
+
 int main() {
-	int l1, r1, l2, r2; cin >> l1 >> r1 >> l2 >> r2;
-	if (l1 < l2) {
-		if (r1 > l2) {
-			cout << min(r2-l2, r1-l2) << "\n";
-		} else {
-			cout << 0 << "\n";
+	ll n; cin >> n;
+	ll p; p = 1e9 + 7;
+	vector<ll> res(n+1);
+	res[0] = 1;
+	res[1] = 1;
+
+	for (int i = 2; i <= n; ++i) {
+		res[i] = res[i-1]*2;
+		if (i > 6) {
+			res[i] -= res[i-7];
 		}
-	} else {
-		if (l1 < r2) {
-			cout << min(r2-l2, min(r1-l1, r2 - l1)) << "\n";
-		} else {
-			cout << 0 << "\n";
-		}
+		res[i] %= p;
+		if (res[i] < 0) res[i] += 1e9+7;
 	}
+	cout << res[n] << "\n";
 }
